@@ -1,15 +1,3 @@
-/*const Email = require('email-templates');
-
-const email = new Email ({
-  message: {
-    from: 'kohn.max@gmail.com'
-  },
-  send: true,
-  transport: {
-    jsonTransport: true
-  }
-});*/
-
 async function commentFormHandler(event) {
     event.preventDefault();
   
@@ -34,17 +22,7 @@ async function commentFormHandler(event) {
   
       if (response.ok) {
         document.location.reload();
-        /*email.send({
-          template: 'comment-notification',
-          message: {
-            to: 'kohn.max@gmail.com'
-          },
-          locals: {
-            name: 'Max'
-          }
-        }).catch(e => {
-          console.log(e);
-        })*/
+
       } else {
         alert(response.statusText);
       }

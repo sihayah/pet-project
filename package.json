@@ -1,22 +1,22 @@
 {
-  "name": "just-tech-news",
+  "name": "just-tech-news-v2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "start": "node server.js"
- },
+   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mkohn4/just-tech-news.git"
+    "url": "git+https://github.com/mkohn4/just-tech-news-v2.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mkohn4/just-tech-news/issues"
+    "url": "https://github.com/mkohn4/just-tech-news-v2/issues"
   },
-  "homepage": "https://github.com/mkohn4/just-tech-news#readme",
+  "homepage": "https://github.com/mkohn4/just-tech-news-v2#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.2",

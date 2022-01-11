@@ -1,10 +1,24 @@
+/*const Email = require('email-templates');
+
+const email = new Email ({
+  message: {
+    from: 'kohn.max@gmail.com'
+  },
+  send: true,
+  transport: {
+    jsonTransport: true
+  }
+});*/
+
 async function commentFormHandler(event) {
     event.preventDefault();
   
     const comment_text = document.querySelector('textarea[name="comment-body"]').value.trim();
-    const post_id = window.location.toString().split('/')[
-      window.location.toString().split('/').length - 1
-    ];
+    const postURL = window.location.toString().split('/');
+    const post_id = postURL[postURL.length - 1];
+
+    console.log(comment_text, post_id);
+
   
     if (comment_text) {
       const response = await fetch('/api/comments', {
@@ -20,6 +34,17 @@ async function commentFormHandler(event) {
   
       if (response.ok) {
         document.location.reload();
+        /*email.send({
+          template: 'comment-notification',
+          message: {
+            to: 'kohn.max@gmail.com'
+          },
+          locals: {
+            name: 'Max'
+          }
+        }).catch(e => {
+          console.log(e);
+        })*/
       } else {
         alert(response.statusText);
       }

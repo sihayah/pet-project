@@ -1,6 +1,17 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
+const Email = require('email-templates');
+
+const email = new Email ({
+  message: {
+    from: 'kohn.max@gmail.com'
+  },
+  send: true,
+  transport: {
+    jsonTransport: true
+  }
+});
 
 router.get('/', (req, res) => {
   Comment.findAll()
@@ -18,7 +29,21 @@ router.post('/', withAuth, (req, res) => {
     user_id: req.session.user_id,
     post_id: req.body.post_id
   })
-    .then(dbCommentData => res.json(dbCommentData))
+    .then(dbCommentData => {
+      email.send({
+        template: 'comment-notification',
+        message: {
+          to: req.session.email
+        },
+        locals: {
+          name: req.session.username,
+          posturl: `https://agile-hamlet-39263.herokuapp.com/post/${req.body.post_id}`
+        }
+      }).catch(e => {
+        console.log(e);
+      });
+      res.json(dbCommentData);
+    })
     .catch(err => {
       console.log(err);
       res.status(400).json(err);

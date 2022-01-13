@@ -1,19 +1,9 @@
 const router = require('express').Router();
-const { Comment, Post } = require('../../models');
+const { Comment, Post, User } = require('../../models');
 const withAuth = require('../../utils/auth');
-//const Email = require('email-templates');
+
 const nodemailer = require("nodemailer");
 
-
-/*const email = new Email ({
-  message: {
-    from: 'kohn.max@gmail.com'
-  },
-  send: true,
-  transport: {
-    jsonTransport: true
-  }
-});*/
 
 router.get('/', (req, res) => {
   Comment.findAll()
@@ -24,45 +14,56 @@ router.get('/', (req, res) => {
     });
 });
 
+
 router.post('/', withAuth, (req, res) => {
   // expects => {comment_text: "This is the comment", user_id: 1, post_id: 2}
-  Comment.create({
+   Comment.create({
     comment_text: req.body.comment_text,
     user_id: req.session.user_id,
     post_id: req.body.post_id
   })
     .then(dbCommentData => {
-      console.log(dbCommentData.dataValues.post_id);
-      /*//figure out how to get post user email address and username
-      router.get('/:id', (req, res) => {
-        Post.findOne({
-          where: {
-            id: dbCommentData.dataValues.post_id
-          },
-          attributes: ['id'],
-          include: [
-            {
-              model: User,
-              attributes: ['username', 'email']
-            }
-          ]
-        })
-          .then(dbPostData => {
-            if (!dbPostData) {
-              res.status(404).json({ message: 'No post found with this id' });
-              return;
-            }
-            console.log(dbPostData);
-            res.json(dbPostData);
-          })
-          .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-          });
-      });*/
-      async function sendEmail() {
-        // Generate test SMTP service account from ethereal.email
-      
+      res.json(dbCommentData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(400).json(err);
+    });
+});
+
+//router for email send
+router.post('/email', withAuth, (req,res) => {
+  Post.findOne({
+    where: {
+      id: req.body.post_id
+    },
+    attributes: ['id'],
+    include: [
+      {
+        model: User,
+        attributes: ['username', 'email'],
+        //use raw:true in order to send sequelize data back as an object
+          raw: true
+      }
+    ]
+  })
+    .then(dbPostData => {
+      if (!dbPostData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
+      }
+      console.log('user data call' + JSON.stringify(dbPostData));
+      let userData = JSON.stringify(dbPostData);
+      userData = JSON.parse(userData);
+
+      console.log(userData.user.username);
+      console.log(userData.user.email);
+
+      const userEmail = userData.user.email;
+      const userName = userData.user.username;
+
+
+      async function sendEmail(userEmail, userName) {
         const transporter = nodemailer.createTransport({
           host: 'smtp.ethereal.email',
           port: 587,
@@ -75,36 +76,20 @@ router.post('/', withAuth, (req, res) => {
         // send mail with defined transport object
         let info = await transporter.sendMail({
           from: '"Comment Ghost 👻"', // sender address
-          to: req.session.email, // currently commenters email address
-          subject: `Max has just received a comment on a post`, // Subject line
-          html: `<p>Hi ${req.session.username},<p><br><p>You've just receieved a comment on <a href="https://agile-hamlet-39263.herokuapp.com/post/${req.body.post_id}">this</a> post</p>` // html text body
+          to: userEmail, // currently commenters email address
+          subject: `You've just received a comment on a post`, // Subject line
+          html: `<p>Hi ${userName},<p><br><p>You've just receieved a comment on <a href="https://agile-hamlet-39263.herokuapp.com/post/${req.body.post_id}">this</a> post</p>` // html text body
         });
-
       }
+      //send email based on post owner username and email
+      sendEmail(userEmail, userName);
 
-      sendEmail().catch(console.error);
 
-
-
-      /*email.send({
-        template: 'comment-notification',
-        message: {
-          to: req.session.email
-        },
-        locals: {
-          name: req.session.username,
-          posturl: `https://agile-hamlet-39263.herokuapp.com/post/${req.body.post_id}`
-        }
-      })
-      .then(console.log('email sent'))
-      .catch(e => {
-        console.log(e);
-      });*/
-      res.json(dbCommentData);
+      res.json(dbPostData);
     })
     .catch(err => {
       console.log(err);
-      res.status(400).json(err);
+      res.status(500).json(err);
     });
 });
 

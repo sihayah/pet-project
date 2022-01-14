@@ -42,15 +42,15 @@ Post.init(
       primaryKey: true,
       autoIncrement: true
     },
-    title: {
+    pet_name: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    post_url: {
+    description: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isURL: true
+        len: [1]
       }
     },
     exhibition_date: {

@@ -2,8 +2,7 @@ const  Post  = require('../models/Post');
 
 const postData = [
   {
-    title: 'Spider',
-    post_url: 'www.spider.com',
+    pet_name: 'Spider',
     exhibition_date: new Date(),
     description: 'Spider is dangerous animal.',
     user_id: 1

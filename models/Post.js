@@ -31,7 +31,7 @@ class Post extends Model {
       });
     });
   }
-}
+};
 
 // create fields/columns for Post model
 Post.init(
@@ -52,6 +52,10 @@ Post.init(
       validate: {
         isURL: true
       }
+    },
+    exhibition_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,

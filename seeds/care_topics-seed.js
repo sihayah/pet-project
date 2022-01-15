@@ -4,6 +4,7 @@ const care_TopicsData = [
   {
     title: 'Allergy',
     description: 'Type of Allrgyes.',
+    post_id: 1,
   },
 ];
 

@@ -31,7 +31,7 @@ class Post extends Model {
       });
     });
   }
-}
+};
 
 // create fields/columns for Post model
 Post.init(
@@ -42,16 +42,20 @@ Post.init(
       primaryKey: true,
       autoIncrement: true
     },
-    title: {
+    pet_name: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    post_url: {
+    description: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isURL: true
+        len: [1]
       }
+    },
+    exhibition_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,

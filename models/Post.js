@@ -13,15 +13,16 @@ class Post extends Model {
         },
         attributes: [
           'id',
-          'post_url',
-          'title',
-          'created_at',
+          'pet_name',
+          'description',
+          'exhibition_date',
+          'user_id',
           [sequelize.literal(`(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)`), 'vote_count']
         ],
         include: [
           {
             model: models.Comment,
-            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'exhibition_date'],
             include: {
               model: models.User,
               attributes: ['username']

@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const { Comment, Post, User, CareTopic } = require('../../models');
+const { Comment, Post, User, CareTopics } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // const nodemailer = require("nodemailer");
 
 
 router.get('/', (req, res) => {
-  CareTopic.findAll()
+  CareTopics.findAll()
     .then(dbCommentData => res.json(dbCommentData))
     .catch(err => {
       console.log(err);
@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 
 router.post('/',(req, res) => {
   // expects => {comment_text: "This is the comment", user_id: 1, post_id: 2}
-   CareTopic.create({
+   CareTopics.create({
     title: req.body.title,
     description: req.body.description,
     post_id: req.body.post_id
@@ -32,7 +32,7 @@ router.post('/',(req, res) => {
 });
 
 router.delete('/:id', withAuth, (req, res) => {
-  CareTopic.destroy({
+  CareTopics.destroy({
     where: {
       id: req.params.id
     }

@@ -1,38 +1,11 @@
 <h1>Welcome to Pet Project!</h1>
+{{#if !loggedIn}}
       <p>We'd love to get your advice on the best way to take care of our pets.</p>
        <p><a href="/login">Login</a> and connect with the community.</p> 
        <p>Don't have an account?<a href="/signup"> Sign up </a>and get started!</p>
+          {{/if}}
 
-<form class="signup-form">
-  <div>
-        <label for="name-signup">name:</label>
-        <input type="text" id="name-signup" />
-    </div>
-    <div>
-        <label for="username-signup">username:</label>
-        <input type="text" id="username-signup" />
-    </div>
-    <div>
-        <label for="email-signup">email:</label>
-        <input type="text" id="email-signup" />
-    </div>
-    <div>
-        <label for="password-signup">password:</label>
-        <input type="password" id="password-signup" />
-    </div>
-    <div>
-        <button type="submit">sign up!</button>
-    </div>
-</form>
-
-       
-      {{{ body }}}
-    </main>
-    <footer>
-      Thanks for visiting!
-      Made with &hearts; by Group-D 
-    </footer>
-  </div>
+<h2>Top Posts:</h2>
 <ol class="post-list">
     {{#each posts as |post|}}
     <li>

@@ -3,12 +3,11 @@
     <h2>Edit Post</h2>
     <form class="edit-post-form">
         <div>
-            <input name="post-title" type="text" value="{{post.title}}" />
-            <span>({{format_url post.post_url}})</span>
+            <input name="pet_name" type="text" value="{{post.pet_name}}"/>
         </div>
         <div>
             {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
-            |
+            
             <a href="/post/{{post.id}}">{{post.comments.lenth}} {{format_plural "comment" post.comments.length}}</a>
         </div>
         <button type="submit">Save Post</button>

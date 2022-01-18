@@ -1,8 +1,3 @@
-<h1>Welcome to Pet Project!</h1>
-      <p>We'd love to get your advice on the best way to take care of our pets.</p>
-       <p><a href="/login">Login</a> and connect with the community.</p> 
-       <p>Don't have an account?<a href="/signup"> Sign up </a>and get started!</p>
-
 <form class="signup-form">
   <div>
         <label for="name-signup">name:</label>
@@ -24,15 +19,4 @@
         <button type="submit">sign up!</button>
     </div>
 </form>
-
-       
-      {{{ body }}}
-    </main>
-   
-<ol class="post-list">
-    {{#each posts as |post|}}
-    <li>
-        {{> post-info post}}
-    </li>
-    {{/each}}
-</ol>
+<script src="/javascript/login.js"></script>

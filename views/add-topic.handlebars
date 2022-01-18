@@ -1,0 +1,18 @@
+<article>
+    <a href="/dashboard">&larr; Back to dashboard</a>
+    <h2>Create Post: {{post title}}</h2>
+    <form class="topic-form">
+        <div>
+            <label for="title">New Care Topic:</label>
+            <input name="topic-title" type="text"/>
+        </div>
+        <div>
+            <label for="description">Pet breed or species:</label>
+            <input name="topic-description" type="text"/>
+        </div>
+        {{!-- get care topic titles and descriptions --}}
+        <button type="button">Add Another Section</button>
+        <button type="button">Create Post</button>
+    </form>
+</article>
+<script src="/javascript/add-topic.js"></script>

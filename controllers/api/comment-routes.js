@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Comment, Post, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-const nodemailer = require("nodemailer");
+// const nodemailer = require("nodemailer");
 
 
 router.get('/', (req, res) => {

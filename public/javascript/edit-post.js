@@ -1,7 +1,9 @@
 
 async function editFormHandler(event) {
     event.preventDefault();
-    const title = document.querySelector('input[name="post-title"]').value;
+    const pet_name = document.querySelector('input[name="pet-name"]').value;
+    console.log(event.target.children);
+    const description = document.querySelector('input[name="description"]').value;
     console.log(event.target.children);
 
     console.log('edit button clicked');
@@ -9,11 +11,12 @@ async function editFormHandler(event) {
     const urlArray = window.location.toString().split('/');
     const id = urlArray[urlArray.length - 1];
     //need to find a way to get the post title here
-    console.log(title);
+    console.log(pet_name);
     const response = await fetch(`/api/posts/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
-            title:title
+            pet_name: pet_name,
+            description: description
         }),
         headers: {
             'Content-Type': 'application/json'

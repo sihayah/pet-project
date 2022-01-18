@@ -1,0 +1,27 @@
+<article>
+    <a href="/dashboard">&larr; Back to dashboard</a>
+    {{#each post as |post|}}
+        <h2> Pet: {{post.pet_name}}</h2>
+        <h3>Description: {{post.description}}</h3> 
+
+        <form class="topic-form">
+            <div>
+                <label for="post-id">id:</label>
+                <input name="post-id" type="text" value="{{post.id}}"/>
+            </div>
+            <div>
+                <label for="title">New Care Topic:</label>
+                <input name="topic-title" type="text"/>
+            </div>
+            <div>
+                <label for="description">Pet More info:</label>
+                <input name="topic-description" type="text"/>
+            </div>
+
+            <button type="button" class="add-section">Add Another Section</button>
+            <button type="submit">Create Post</button>
+        </form>
+    {{/each}}
+</article>
+
+<script src="/javascript/add-topic.js"></script>

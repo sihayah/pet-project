@@ -1,4 +1,4 @@
-const  Care_Topics  = require('../models/Care_Topics');
+const  CareTopic  = require('../models/CareTopic');
 
 const care_TopicsData = [
   {
@@ -8,6 +8,6 @@ const care_TopicsData = [
   },
 ];
 
-const seedCare_Topics = () => Care_Topics.bulkCreate(care_TopicsData);
+const seedCare_Topics = () => CareTopic.bulkCreate(care_TopicsData);
 
 module.exports = seedCare_Topics;

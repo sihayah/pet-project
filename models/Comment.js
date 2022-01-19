@@ -18,7 +18,7 @@ Comment.init(
         len: [1]
       }
     },
-    exhibition_date: {
+    created_at: {
       type: DataTypes.DATE,
       allowNull: false,
     },

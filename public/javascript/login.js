@@ -22,6 +22,11 @@ async function loginFormHandler(event) {
             alert(response.statusText);
         }
     }
+<<<<<<< HEAD
 };
 
     document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+=======
+
+    document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+>>>>>>> 0b82d9e68246e7f642e5f056c47d16d0790b7b5b

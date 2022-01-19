@@ -15,14 +15,14 @@ class Post extends Model {
           'id',
           'pet_name',
           'description',
-          'exhibition_date',
+          'created_at',
           'user_id',
           [sequelize.literal(`(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)`), 'vote_count']
         ],
         include: [
           {
             model: models.Comment,
-            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'exhibition_date'],
+            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
             include: {
               model: models.User,
               attributes: ['username']
@@ -54,7 +54,7 @@ Post.init(
         len: [1]
       }
     },
-    exhibition_date: {
+    created_at: {
       type: DataTypes.DATE,
       allowNull: false,
     },

@@ -1,15 +1,17 @@
         <article class="post">
             <div class="title">
-                <a href="/post/{{id}}" target="_blank">{{pet_name}}</a>
-                <p>{{description}}</p>
-
-                {{#each care_topics}}
-                    <p>{{title}}: {{description}}</p>
-                {{/each}}
+                <a href="/posts/{{id}}" target="_blank">{{pet_name}}</a>
             </div>
+            <p>{{description}}</p>
+            for {{#each care_topics}}
+            <p>
+{{title}}:
+{{description}}
+            </p>
+            {{/each}}
             <div class="meta">
                 {{vote_count}} {{format_plural "point" vote_count}} by {{user.username}} on {{format_date created_at}}
-                |
+                
                 <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
             </div>
         </article>

@@ -2,7 +2,7 @@ const  Comment  = require('../models/Comment');
 
 const commentData = [
   {
-    exhibition_date: new Date(),
+    created_at: new Date(),
     comment_text: 'Good Post!',
     user_id: 1,
     post_id: 1

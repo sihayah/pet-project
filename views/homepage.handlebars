@@ -1,7 +1,9 @@
 <h1>Welcome to Pet Project!</h1>
+{{#if !loggedIn}}
       <p>We'd love to get your advice on the best way to take care of our pets.</p>
        <p><a href="/login">Login</a> and connect with the community.</p> 
        <p>Don't have an account?<a href="/signup"> Sign up </a>and get started!</p>
+          {{/if}}
 
 <h2>Top Posts:</h2>
 <ol class="post-list">

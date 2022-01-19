@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const { Comment, Post, User } = require('../../models');
 const withAuth = require('../../utils/auth');
-
-// const nodemailer = require("nodemailer");
+const nodemailer = require("nodemailer");
 
 
 router.get('/', (req, res) => {
@@ -16,6 +15,7 @@ router.get('/', (req, res) => {
 
 
 router.post('/', withAuth, (req, res) => {
+  console.log("loggedIn?...", req.session.id)
   // expects => {comment_text: "This is the comment", user_id: 1, post_id: 2}
    Comment.create({
     comment_text: req.body.comment_text,

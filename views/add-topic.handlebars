@@ -1,7 +1,7 @@
 <article>
     <a href="/dashboard">&larr; Back to dashboard</a>
-    <h2>Create Post: {{post title}}</h2>
-    for {{#each post as |post|}} 
+    <h2>Create Post: {{post.title}}</h2>
+    {{#each post as |post|}} 
     <header>
         <h2>Pet: {{post.pet_name}}
         </h2>

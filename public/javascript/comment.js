@@ -6,7 +6,7 @@ async function commentFormHandler(event) {
     const postURL = window.location.toString().split('/');
     const post_id = postURL[postURL.length - 1];
 
-    console.log(comment_text, post_id);
+    console.log(comment_text, post_id, post_id);
 
   
     if (comment_text) {

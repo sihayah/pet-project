@@ -181,12 +181,18 @@ button:hover, #login:hover {
 }
 
 .container {
-  margin: 6vh;
+  margin: 2vh;
   text-align: center;
 }
 
 .left {
   text-align: left;
+}
+
+.italic {
+  font-style: italic;
+  opacity: 75%;
+  font-size: .8em;
 }
 
 .create-container {

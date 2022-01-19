@@ -54,10 +54,6 @@ Post.init(
         len: [1]
       }
     },
-    created_at: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

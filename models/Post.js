@@ -13,9 +13,10 @@ class Post extends Model {
         },
         attributes: [
           'id',
-          'post_url',
-          'title',
+          'pet_name',
+          'description',
           'created_at',
+          'user_id',
           [sequelize.literal(`(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)`), 'vote_count']
         ],
         include: [
@@ -53,7 +54,7 @@ Post.init(
         len: [1]
       }
     },
-    exhibition_date: {
+    created_at: {
       type: DataTypes.DATE,
       allowNull: false,
     },

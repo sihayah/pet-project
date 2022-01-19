@@ -34,7 +34,7 @@ CareTopics.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'care_topics'
+    modelName: 'careTopics'
   }
 );
 

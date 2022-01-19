@@ -131,12 +131,15 @@ main {
 }
 
 .delete-post-btn {
-  background-color: #d41414;
-  color: #fff;
+  background-color: #fff;
+  color: #d41414;
+  border: none;
 }
 
 .delete-post-btn:hover {
-  background-color: #ff643d;
+  background-color: #d41414;
+  border: 3px solid #d41414;;
+  color: #fff;
 }
 
 .faux-btn, #sign-up {

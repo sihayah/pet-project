@@ -5,27 +5,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pet Project</title>
+  <script src="https://kit.fontawesome.com/4e37321681.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
+  <a id="top"></a>
   <div class="wrapper">
     <header>
       <h1>
+        <i class="fas fa-cat"></i>
         <a href="/">Pet Project</a>: an online community for pet owners everywhere
       </h1>
       <nav>
           {{#if loggedIn}}
-          <a href="/dashboard">dashboard</a>
+          <a class="faux-btn" href="/dashboard">dashboard</a>
           <button id="logout" class="btn-no-style">logout</button>
           {{else}}
-          <a href="/login">login</a>
-          <a href="/signup">sign-up</a>
+          
+          <a id="sign-up" href="/signup">sign-up</a>
+          <a id="login" class ="faux-btn" href="/login">login</a>
           {{/if}}
       </nav>
     </header>
     <main>
       {{{ body }}}
+      
     </main>
     <footer>
       Thanks for visiting!

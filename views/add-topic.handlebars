@@ -1,29 +1,32 @@
-<article>
-    <a href="/dashboard">&larr; Back to dashboard</a>
-    <h2>Create Post: {{post.title}}</h2>
-    {{#each post as |post|}} 
-    <header>
-        <h2>Pet: {{post.pet_name}}
-        </h2>
-        <h3>Description: {{post.description}}/h3>
-    </header>
-    <form class="topic-form">
-        <div>
-            <label for="title">New Care Topic:</label>
-            <input name="topic-title" type="text"/>
-        </div>
-        <div>
-            <label for="description">More info:</label>
-            <textarea name="topic-description" type="text"></textarea>
-        </div>
-          <div>
-            <label for="post-id">id:</label>
-            <input name="post-id" type="text" value="{{post.id}}"/>
-        </div>
-        {{!-- get care topic titles and descriptions --}}
-        <button type="button">Add Another Section</button>
-        <button type="submit">Create Post</button>
-    </form>
-    {{/each}}
-</article>
+<div class="container">
+    <article class="create-form">
+        <a href="/dashboard">&larr; Back to dashboard</a>
+        <h2>Create Post: {{post.title}}</h2>
+        {{#each post as |post|}} 
+        <header>
+            <h2>{{post.pet_name}}
+            </h2>
+            <h3>Description: {{post.description}}</h3>
+        </header>
+        <form class="topic-form">
+            <div>
+                <label for="title">New Care Topic:</label>
+                <input name="topic-title" type="text"/>
+            </div>
+            <div>
+                <label for="description">More info:</label>
+                <textarea name="topic-description" type="text"></textarea>
+            </div>
+            <div class="id">
+                <label for="post-id">id:</label>
+                <input name="post-id" type="text" value="{{post.id}}"/>
+            </div>
+            {{!-- get care topic titles and descriptions --}}
+            <button type="button">Add Another Section</button>
+            <button type="submit">Create Post</button>
+        </form>
+        {{/each}}
+    </article>    
+</div>
+
 <script src="/javascript/add-topic.js"></script>

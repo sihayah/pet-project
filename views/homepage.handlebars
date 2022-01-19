@@ -1,17 +1,23 @@
-<h1>Welcome to Pet Project!</h1>
-{{#if loggedIn}}
-{{else}}
-
+<h1 id="welcome">
+    Welcome to 
+    <i class="fas fa-cat"></i>
+    Pet Project!</h1>
+{{#unless loggedIn}}
+    <div class="intro">
       <p>We'd love to get your advice on the best way to take care of our pets.</p>
        <p><a href="/login">Login</a> and connect with the community.</p> 
        <p>Don't have an account?<a href="/signup"> Sign up </a>and get started!</p>
-          {{/if}}
+    </div>       
+{{/unless}}
 
-<h2>Top Posts:</h2>
-<ol class="post-list">
-    {{#each posts as |post|}}
-    <li>
-        {{> post-info post}}
-    </li>
-    {{/each}}
-</ol>
+
+<div class="container">
+    <h2 class="top-posts">Top Posts:</h2>
+    <ol class="post-list">
+        {{#each posts as |post|}}
+        <li>
+            {{> post-info post}}
+        </li>
+        {{/each}}
+    </ol>
+</div>

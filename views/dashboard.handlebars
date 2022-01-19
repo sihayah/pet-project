@@ -1,17 +1,23 @@
-<a href="/create">Create</a>
-{{#if posts.length}}
-<section>
-  <h2>Your Posts:</h2>
-  <ol>
-    {{#each posts as |post|}}
-    <li>
-      {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
-    </li>
-    {{/each}}
-  </ol>
-</section>
-{{/if}}
+ <div class="container">
+   <div class="create-container">
+      <a class="faux-btn create" href="/create">Create</a> 
+   </div>
+
+ </div>
+    {{#if posts.length}}
+    <section>
+      <ol>
+         <h2>Your Posts:</h2>     
+        {{#each posts as |post|}}
+        <li>
+          {{> post-info post}}
+          <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+        </li>
+        {{/each}}
+      </ol>
+   </section>
+  {{/if}}
+
 
 
 

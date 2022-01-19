@@ -1,12 +1,15 @@
+    <div class="container">
         <article class="post">
             <div class="title">
-                <a href="/post/{{id}}" target="_self">{{pet_name}}</a>
+                <a href="/post/{{id}}" target="_self">
+                   <i class="fas fa-paw"></i>
+                    {{pet_name}}</a>
             </div>
             <p>{{description}}</p>
-            for {{#each care_topics}}
+            {{#each careTopics}}
             <p>
-{{title}}:
-{{description}}
+                {{title}}:
+                {{description}}
             </p>
             {{/each}}
             <div class="meta">
@@ -14,4 +17,5 @@
                 
                 <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
             </div>
-        </article>
+        </article> 
+    </div>

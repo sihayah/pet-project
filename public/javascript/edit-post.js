@@ -3,7 +3,7 @@ async function editFormHandler(event) {
     event.preventDefault();
     const pet_name = document.querySelector('input[name="pet-name"]').value;
     console.log(event.target.children);
-    const description = document.querySelector('input[name="description"]').value;
+    const description = document.querySelector('textarea[name="description"]').value;
     console.log(event.target.children);
 
     console.log('edit button clicked');

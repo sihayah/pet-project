@@ -3,40 +3,33 @@
 }
 :root {
 
-  --theme-mauve-dark: #400A27;
-  --theme-mauve: #6F1243;
-  --theme-mauve-light: #9c2866;
-  --theme-red-orange: #C73D28;
+
+  --theme-red-orange: #a63321;
   --theme-red-orange-light: #c9695b;
-  --theme-gold: #f2aa1b;
-  --theme-green: #367551;
+  --theme-red-orange-lighter: #edada4;
 }
 
 body, html {
   height: 100%;
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  min-height: 80vh;
+}
+
+section {
+  padding: 0;
+  margin: 0;
 }
 
 a {
   text-decoration: none;
-  color: var(--theme-red-orange);
+  color: var(--theme-red-orange-light);
   transition: color .1s;
 }
 
 a:hover {
-  color: var(--theme-mauve-dark);
-}
-
-button {
-  border: 0;
-  padding: .75vh;
-  color: white;
-  font-weight: bold;
-  transition: background-color .1s;
-  cursor: pointer;
-  border-radius: 5px;
+  color: var(--theme-red-orange);
 }
 
 
@@ -72,7 +65,6 @@ form label {
 
 .wrapper {
   width: 100%;
-  min-height: 100%;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
@@ -84,50 +76,93 @@ header {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 1% 1%;
+  padding: 2% 1%;
 }
 
-button {
-  border: 3px solid var(--theme-red-orange);
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.nav-btn {
+  margin-bottom: 1vh;
+  text-align: center;
+  width: 40vh;
+}
+
+button, .faux-btn, #sign-up, #logout{
+  border: 0;
   border-radius: 5px;
-  background-color: #fff;
+  cursor: pointer;
   color: var(--theme-red-orange-light);
-  padding: .75vh;
+  padding: 1vh;
+  margin-right: 1vh;
   font-size: 1em;
   font-weight: bold;
 }
 
+#logout {
+  background-color: #fff;
+  color: var(--theme-red-orange);
+}
+
+#dashboard-btn {
+  color: var(--theme-red-orange);
+}
+
+.faux-btn a {
+  color: var(--theme-mauve-light);
+  text-align: center;
+}
+
+button:hover, .faux-btn:hover, #sign-up:hover, #logout:hover{
+  box-shadow: 0 2px 10px var( --theme-red-orange);
+}
+
 h2, h3 {
-  color: var(--theme-green);
+  color: #fff;
   font-size: 1em;
   text-align: left;
 }
 
+.create-form h2, h3 {
+  color: var(--theme-red-orange-light);
+  font-size: 1em;
+  text-align: left;
+}
+
+section h2 {
+  padding-left: 1vh;
+}
+
 .top-posts {
-  color: var(--theme-mauve-light);
+  color: #fff;
+  padding-left: 2vh;
 }
 
 header a {
-  color: var(--theme-mauve-light);
+  color: var( --theme-red-orange);
 }
 
 header h1 {
-  font-size: 1em;
+  font-size: 2em;
   color: var(--theme-red-orange);
+  margin: 0;
+  padding-bottom: 2vh;
+}
+
+main h1 {
+  margin: 0;
 }
 
 main {
   flex: 1;
-  margin: 4%;
-  border: 3px solid var(--theme-red-orange);
-  border-bottom: none;
-  border-radius: 5px 5px 0 0;
+  padding: 0;
+  margin: 2vh;
+  border-radius: 2vh;
   text-align: right;
-}
-
-#back-link {
-  padding-bottom: 5vh;
-  color: var(--theme-dark);
+  background-color: var(--theme-red-orange);
 }
 
 .delete-post-btn {
@@ -142,47 +177,46 @@ main {
   color: #fff;
 }
 
-.faux-btn, #sign-up {
-  background-color: var(--theme-mauve-lightest);
-  border: 3px solid var(--theme-mauve);
-  font-weight: bold;
-  transition: background-color .1s;
-  cursor: pointer;
-  border-radius: 5px;
-  padding: .75vh;
-  font-size: 1em;
-}
-
-.create {
-  margin-top: 2vh;
-}
-
 .id {
   display: none;
 }
 
-button:hover, #login:hover {
-  color: var(--theme-red-orange);
-}
-
 #welcome {
   text-align: center;
-  color: var(--theme-green);
-  border-bottom: 1px solid var(--theme-gold);
+  color: #fff;
   padding: 2vh;
   margin: 0;
-
 }
 
 .intro {
   margin: 4vh 8vh;
   text-align: center;
-  border: 1px solid var(--theme-gold);
+  border: 1px solid var( --theme-red-orange);
+  box-shadow: 5px 5px 5px var(--theme-red-orange-lighter);
+  background-color: #fff;
 }
 
 .container {
-  margin: 2vh;
+  margin: 1.5vh;
   text-align: center;
+  background-color: #fff;
+  border-radius: 1vh;
+  padding: 2vh;
+  font-style: italic;
+  color: var(--theme-red-orange-light);
+  min-height: 15vh;
+}
+
+.edit-link {
+  padding: 0 1.5vh 1vh 0;
+  color: var(--theme-red-orange-lighter);
+}
+
+#create-link {
+  color: #fff;
+  border-radius: 1vh;
+  padding: 1vh;
+  border: 1px solid #fff;
 }
 
 .left {
@@ -196,8 +230,8 @@ button:hover, #login:hover {
 }
 
 .create-container {
-  border-bottom: 1px solid var(--theme-gold);
-  padding-bottom: 3vh;
+  text-align: center;
+  padding: 3vh;
 }
 
 .create-form {
@@ -206,25 +240,24 @@ button:hover, #login:hover {
 
 ol {
   list-style: none;
+  padding: 0;
+}
+
+li {
+  display: block;
 }
 
 .post {
   margin-bottom: 2%;
   line-height: 150%;
-  border-bottom: 1px solid #000;
-  padding: 1vh;
   text-align: left;
+  color: #000;
 }
 
 .post .title span {
   font-style: italic;
   font-size: 90%;
   color: #7d7d7d;
-}
-
-.edit-link {
-  display: block;
-  margin: -1.5% 5% 2% 0;
 }
 
 .comment-form {
@@ -258,15 +291,30 @@ ol {
 
 footer {
   border-top: 1px solid #ccc;
-  display: flex;
-  justify-content: center;
-  padding: 1%;
-  font-size: 110%;
+  margin-top: 50vh;
+  padding-top: 1vh;
+  text-align: center;
+  position: absolute;
+  width: 100%;
 }
 
-/* MEDIA QUERY FOR SCREENS MORE 800px */
-@media screen and (min-width: 800px) {
+.hide-mobile {
+  display: none;
+}
+
+/* MEDIA QUERY FOR SCREENS MORE 450px */
+@media screen and (min-width: 450px) {
   header {
     flex-direction: row;
+  }
+  nav {
+    flex-direction: row;
+  }
+  .nav-btn {
+    width: auto;
+  }
+  .hide-mobile {
+    display: block;
+    font-size: 2vh;
   }
 }

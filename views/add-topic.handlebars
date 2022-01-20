@@ -1,13 +1,13 @@
 <div class="container">
     <article class="create-form">
         <a href="/dashboard">&larr; Back to dashboard</a>
-        <h2>Create Post: {{post.title}}</h2>
+        <h2>Creating Post... {{post.title}}</h2>
         {{#each post as |post|}} 
-        <header>
-            <h2>{{post.pet_name}}
+        <div>
+            <h2>Pet: {{post.pet_name}}
             </h2>
             <h3>Description: {{post.description}}</h3>
-        </header>
+        </div>
         <form class="topic-form">
             <div>
                 <label for="title">New Care Topic:</label>

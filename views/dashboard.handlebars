@@ -1,9 +1,8 @@
- <div class="container">
    <div class="create-container">
-      <a class="faux-btn create" href="/create">Create</a> 
+      <a id="create-link" href="/create">Create <i class="fas fa-cat"></i>
+        </a> 
    </div>
-
- </div>
+ <div class="container">
     {{#if posts.length}}
     <section>
       <ol>
@@ -16,7 +15,10 @@
         {{/each}}
       </ol>
    </section>
+   {{else}}
+   You haven't created any posts yet!
   {{/if}}
+</div>  
 
 
 

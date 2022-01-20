@@ -8,7 +8,7 @@ const CareTopics = require('./CareTopics');
 // create associations
 Post.belongsTo(User, {
   foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+  onDelete: 'cascade'
 });
 
 Post.belongsToMany(User, {

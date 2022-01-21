@@ -4,9 +4,9 @@
 :root {
 
 
-  --theme-red-orange: #6f1243;
-  --theme-red-orange-light: #c9695b;
-  --theme-red-orange-lighter: #edada4;
+  --red-violet: #6f1243;
+  --peach: #c9695b;
+  --peach-light: #edada4;
 }
 
 body, html {
@@ -27,12 +27,12 @@ section {
 
 a {
   text-decoration: none;
-  color: var(--theme-red-orange-light);
+  color: var(--peach-light);
   transition: color .1s;
 }
 
 a:hover {
-  color: var(--theme-red-orange);
+  color: var(--peach);
 }
 
 
@@ -98,39 +98,40 @@ button, .faux-btn, #sign-up, #logout{
   border: 0;
   border-radius: 5px;
   cursor: pointer;
-  color: var(--theme-red-orange-light);
+  color: var(--peach);
   padding: 1vh;
   margin-right: 1vh;
   font-size: 1em;
   font-weight: bold;
 }
 
+
 #logout {
   background-color: #fff;
-  color: var(--theme-red-orange);
+  color: var(--peach);
 }
 
 #dashboard-btn {
-  color: var(--theme-red-orange);
+  color: var(--peach);
 }
 
 .faux-btn a {
-  color: var(--theme-mauve-light);
+  color: var(--peach);
   text-align: center;
 }
 
 button:hover, .faux-btn:hover, #sign-up:hover, #logout:hover{
-  box-shadow: 0 2px 10px var( --theme-red-orange);
+  box-shadow: 0 1px 3px var( --peach-light);
 }
 
 h2, h3 {
-  color: #fff;
+  color: var(--peach);
   font-size: 1em;
   text-align: left;
 }
 
 .create-form h2, h3 {
-  color: var(--theme-red-orange-light);
+  color: var(--peach);
   font-size: 1em;
   text-align: left;
 }
@@ -145,12 +146,12 @@ section h2 {
 }
 
 header a {
-  color: var( --theme-red-orange);
+  color: var( --red-violet);
 }
 
 header h1 {
   font-size: 2em;
-  color: var(--theme-red-orange);
+  color: var(--red-violet);
   margin: 0;
   padding-bottom: 2vh;
 }
@@ -160,12 +161,11 @@ main h1 {
 }
 
 main {
-  flex: 1;
   padding: 0;
-  margin: 2vh;
+  margin: 1vh;
   border-radius: 2vh;
   text-align: right;
-  background-color: var(--theme-red-orange);
+  background-color: var(--red-violet);
 }
 
 .delete-post-btn {
@@ -194,25 +194,37 @@ main {
 .intro {
   margin: 4vh 8vh;
   text-align: center;
-  border: 1px solid var( --theme-red-orange);
-  box-shadow: 5px 5px 5px var(--theme-red-orange-lighter);
+  border: 1px solid var( --peach);
+  box-shadow: 5px 5px 5px var(--peach-light);
   background-color: #fff;
+  font-style: italic;
+  font-size: .75em;
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
   margin: 1.5vh;
-  text-align: center;
-  background-color: #fff;
+  text-align: right;
+  background-color: #F0F0F0;
   border-radius: 1vh;
-  padding: 2vh;
-  font-style: italic;
-  color: var(--theme-red-orange-light);
-  min-height: 15vh;
+  justify-content: space-around;
+  color: var(--peach);
+  min-height: 5vh;
+}
+
+.container li {
+  margin-bottom: 3vh;
+}
+
+.form-container {
+  text-align: left;
+  padding: 6vh;
 }
 
 .edit-link {
-  padding: 0 1.5vh 1vh 0;
-  color: var(--theme-red-orange-lighter);
+  color: var(--peach-light);
+  padding-right: 3vh;
 }
 
 #create-link {
@@ -220,17 +232,27 @@ main {
   border-radius: 1vh;
   padding: 1vh;
   border: 1px solid #fff;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
 }
 
-.left {
-  text-align: left;
+#create-link:active,
+#create-link:focus,
+#create-link:hover {
+  /* box-shadow: 0 0.5em 0.5em -0.4em var(--peach-light); */
+  transform: translateY(-0.5em);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
 }
 
-.italic {
-  font-style: italic;
-  opacity: 75%;
-  font-size: .8em;
-}
+
 
 .create-container {
   text-align: center;
@@ -244,17 +266,26 @@ main {
 ol {
   list-style: none;
   padding: 0;
+  line-height: .5;
 }
 
-li {
-  display: block;
-}
 
 .post {
-  margin-bottom: 2%;
-  line-height: 150%;
+  line-height: 100%;
   text-align: left;
   color: #000;
+  background-color: #fff;
+  padding: 2vh 2vh 2vh 3vh;
+  border-radius: 1vh;
+  border: 1px dashed #B0B0B0;
+}
+
+.post a {
+  color: var(--red-violet);
+}
+
+.post a:hover {
+  color: var(--peach);
 }
 
 .post .title span {

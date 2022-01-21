@@ -7,13 +7,14 @@
 {{/unless}}
 
 <h2 class="top-posts">Top Posts:</h2>
-
+<div class="container"> 
     <ol class="post-list">
         {{#each posts as |post|}}
-       <div class="container"> 
+
             <li>
                 {{> post-info post}}
             </li>
-        </div>
+
         {{/each}}
     </ol>
+</div>

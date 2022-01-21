@@ -184,21 +184,19 @@ main {
   display: none;
 }
 
-#welcome {
-  text-align: center;
-  color: #fff;
-  padding: 2vh;
-  margin: 0;
-}
-
 .intro {
-  margin: 4vh 8vh;
+  margin-bottom: 1vh;
   text-align: center;
-  border: 1px solid var( --peach);
-  box-shadow: 5px 5px 5px var(--peach-light);
+  padding: 3vh;
   background-color: #fff;
   font-style: italic;
   font-size: .75em;
+  border: 4px solid var(--peach);
+  border-radius: 1vh 1vh 0 0;
+}
+
+.intro a {
+  color: var(--peach);
 }
 
 .container {
@@ -220,6 +218,16 @@ main {
 .form-container {
   text-align: left;
   padding: 6vh;
+}
+
+.post-container {
+  text-align: center;
+  padding: 6vh 6vh 0 6vh;
+}
+
+.if-no-posts {
+  padding: 20vh ;
+  text-align: center;
 }
 
 .edit-link {
@@ -295,7 +303,7 @@ ol {
 }
 
 .comment-form {
-  margin-bottom: 5%;
+  margin: 2%;
 }
 
 .comment {

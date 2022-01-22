@@ -15,28 +15,32 @@
     <header>
       <h1>
         <i class="fas fa-cat"></i>
-        <a href="/">Pet Project</a>: an online community for pet owners everywhere
+        <a href="/">Pet Project</a>
+        <span class="hide-mobile">an online community for pet owners</span>
       </h1>
       <nav>
           {{#if loggedIn}}
-          <a class="faux-btn" href="/dashboard">dashboard</a>
-          <button id="logout" class="btn-no-style">logout</button>
+          <a class="faux-btn nav-btn" id="dashboard-btn" href="/">home</a>
+          <a class="faux-btn nav-btn" id="dashboard-btn" href="/dashboard">dashboard</a>
+          
+          <button id="logout" class="nav-btn">logout</button>
           {{else}}
           
-          <a id="sign-up" href="/signup">sign-up</a>
-          <a id="login" class ="faux-btn" href="/login">login</a>
+          <a id="sign-up" class="nav-btn" href="/signup">sign-up</a>
+          <a id="login" class ="faux-btn nav-btn" href="/login">login</a>
           {{/if}}
       </nav>
-    </header>
+    </header> 
     <main>
-      {{{ body }}}
-      
-    </main>
+        {{{ body }}}
+        
+    </main> 
+  </div>  
     <footer>
       Thanks for visiting!
       Made with &hearts; by Group-D 
     </footer>
-  </div>
+
   {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
     {{/if}}

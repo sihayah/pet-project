@@ -1,24 +1,25 @@
 async function newFormHandler(event) {
     event.preventDefault();
-
-    const title = document.querySelector('input[name="post-title"]').value;
-    const post_url = document.querySelector('input[name="post-url"]').value;
-
+  
+    const pet_name = document.querySelector('input[name="post-title"]').value;
+    const description = document.querySelector('textarea').value;
+  
     const response = await fetch(`/api/posts`, {
-        method: 'POST',
-        body: JSON.stringify({
-            title, post_url
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
+      method: 'POST',
+      body: JSON.stringify({
+        pet_name,
+        description
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
     });
-    console.log(response);
+  
     if (response.ok) {
-        document.location.replace('/dashboard');
+      document.location.replace(`/create/topic`);
     } else {
-        alert(response.statusText);
+      alert(response.statusText);
     }
-}
-
-document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+  }
+  
+  document.querySelector('.create-post-form').addEventListener('submit', newFormHandler);

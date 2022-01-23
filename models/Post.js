@@ -13,9 +13,10 @@ class Post extends Model {
         },
         attributes: [
           'id',
-          'post_url',
-          'title',
+          'pet_name',
+          'description',
           'created_at',
+          'user_id',
           [sequelize.literal(`(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)`), 'vote_count']
         ],
         include: [
@@ -31,7 +32,7 @@ class Post extends Model {
       });
     });
   }
-}
+};
 
 // create fields/columns for Post model
 Post.init(
@@ -42,15 +43,15 @@ Post.init(
       primaryKey: true,
       autoIncrement: true
     },
-    title: {
+    pet_name: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    post_url: {
+    description: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isURL: true
+        len: [1]
       }
     },
     user_id: {

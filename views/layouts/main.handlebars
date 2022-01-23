@@ -4,32 +4,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Just Tech News</title>
+  <title>Pet Project</title>
+  <script src="https://kit.fontawesome.com/4e37321681.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
+  <a id="top"></a>
   <div class="wrapper">
     <header>
       <h1>
-        <a href="/">Just Tech News</a>
+        <i class="fas fa-cat"></i>
+        <a href="/">Pet Project</a>
+        <span class="hide-mobile">an online community for pet owners</span>
       </h1>
       <nav>
           {{#if loggedIn}}
-          <a href="/dashboard">dashboard</a>
-          <button id="logout" class="btn-no-style">logout</button>
+          <a class="faux-btn nav-btn" id="dashboard-btn" href="/">home</a>
+          <a class="faux-btn nav-btn" id="dashboard-btn" href="/dashboard">dashboard</a>
+          
+          <button id="logout" class="nav-btn">logout</button>
           {{else}}
-          <a href="/login">login</a>
+          
+          <a id="sign-up" class="nav-btn" href="/signup">sign-up</a>
+          <a id="login" class ="faux-btn nav-btn" href="/login">login</a>
           {{/if}}
       </nav>
-    </header>
+    </header> 
     <main>
-      {{{ body }}}
-    </main>
+        {{{ body }}}
+        
+    </main> 
+  </div>  
     <footer>
       Thanks for visiting!
+      Made with &hearts; by Group-D 
     </footer>
-  </div>
+
   {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
     {{/if}}

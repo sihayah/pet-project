@@ -17,8 +17,8 @@
 
 Pet Project is an online community for pet owners to post about their pets, allergies, diets and more.  Users can comment on one anothers posts and will receive notifications when other users comment on their posts.  This was a group project by github users: gabeansong7, sihayah, AdamDagi, pcancio
 
-## Image fo Deployed App
-![Pet Project Deployed App Homepage](https://pet-project.herokuapp.com/)
+## Deployed App
+Pet Project Deployed App Homepage: https://pet-project.herokuapp.com/
 
 
 ## Installation

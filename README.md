@@ -23,7 +23,7 @@ Pet Project Deployed App Homepage: https://pet-project.herokuapp.com/
 
 ## Installation
 
-Application is deployed to Heroku at this address: https://warm-springs-61498.herokuapp.com/ but you can also git clone the repo, run npm i to gather all dependencies, and run thiis on localhost with your own .env file
+Application is deployed to Heroku at this address: https://pet-project.herokuapp.com/ but you can also git clone the repo, run npm i to gather all dependencies, and run thiis on localhost with your own .env file
 
 ## Usage
 
